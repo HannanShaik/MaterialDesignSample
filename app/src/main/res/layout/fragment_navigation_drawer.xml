@@ -1,11 +1,29 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<!--
+<org.lucasr.dspec.DesignSpecFrameLayout
     android:layout_height="match_parent"
-    tools:context="com.compassites.materialdesign.NavigationDrawerFragment"
-    android:background="#EEE">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    app:designSpec="@raw/spec"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+-->
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.compassites.materialdesign.fragment.NavigationDrawerFragment"
+    android:background="#EEE"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin">
+
+   <android.support.v7.widget.RecyclerView
+       android:id="@+id/rv_drawer_list"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+   </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
+<!--
+</org.lucasr.dspec.DesignSpecFrameLayout>-->

@@ -10,5 +10,5 @@
     <string name="title_activity_sub">SubActivity</string>
     <string name="title_activity_subb">SubbActivity</string>
     <string name="next_activity">NEXT</string>
-
+    <string name="menu_search_lbl">Search</string>
 </resources>

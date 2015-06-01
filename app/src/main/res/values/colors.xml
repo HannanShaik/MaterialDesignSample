@@ -9,6 +9,18 @@
     <color name="primaryColorDark">#FBC02D</color>
     <color name="accentColor">#242423</color>
 
+    <!--
+    colorPrimaryDark – This is darkest primary color of the app mainly applies to notification bar background.
+
+    colorPrimary – This is the primary color of the app. This color will be applied as toolbar background.
+
+    textColorPrimary – This is the primary color of text. This applies to toolbar title.
+
+    windowBackground – This is the default background color of the app.
+
+    navigationBarColor – This color defines the background color of footer navigation bar.
+    -->
+    
     <color name="black_semi_transparent">#B2000000</color>
     <color name="background">#e5e5e5</color>
     <color name="half_black">#808080</color>

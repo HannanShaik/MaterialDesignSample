@@ -16,8 +16,8 @@
 
         <item name="colorAccent">@color/accentColor</item>
 
-
     </style>
+
 
     <style name="Theme.MyTheme.ToolBarStyle" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:background">@color/primaryColor</item>

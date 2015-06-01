@@ -23,14 +23,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.compassites.materialdesign.MainActivity" />
         </activity>
-        <activity
-            android:name="com.compassites.materialdesign.SubbActivity"
-            android:label="@string/title_activity_subb"
-            android:parentActivityName="com.compassites.materialdesign.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.compassites.materialdesign.MainActivity" />
-        </activity>
+
     </application>
 
 </manifest>

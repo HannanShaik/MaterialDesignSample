@@ -1,4 +1,4 @@
-package com.compassites.materialdesign;
+package com.compassites.materialdesign.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,21 +6,44 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.compassites.materialdesign.model.Data;
+import com.compassites.materialdesign.adapter.DataListAdapter;
+import com.compassites.materialdesign.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class NavigationDrawerFragment extends Fragment {
 
+    private RecyclerView mRecyclerView;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private String KEY_USER_LEARNED_DRAWER = "user_learned_drawer";
     private boolean mUserLearnedDrawer;
     private boolean mFromSavedInstanceState;
     private View containerView;
+    private DataListAdapter dataListAdapter;
+
+    public static List<Data> getData(){
+        List<Data> dataList = new ArrayList<Data>();
+        int[] icons = {R.drawable.ic_launcher,R.drawable.ic_launcher,R.drawable.ic_launcher};
+        String[] texts = {"ABC","DEF","PQR","LMS"};
+        for(int i = 0; i<100; i++){
+            Data data = new Data();
+            data.iconId=icons[i%icons.length];
+            data.text=texts[i%icons.length];
+            dataList.add(data);
+        }
+        return dataList;
+    }
 
     public NavigationDrawerFragment() {
         // Required empty public constructor
@@ -66,6 +89,7 @@ public class NavigationDrawerFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mUserLearnedDrawer = Boolean.valueOf(readFromPrefs(getActivity(),KEY_USER_LEARNED_DRAWER,"false"));
+
         if (savedInstanceState != null){
             mFromSavedInstanceState = true;
         }
@@ -74,8 +98,13 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View layout = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
+        mRecyclerView = (RecyclerView) layout.findViewById(R.id.rv_drawer_list);
+        dataListAdapter = new DataListAdapter(getActivity(),getData());
+        mRecyclerView.setAdapter(dataListAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
+        return layout;
     }
 
     public static void saveToPrefs(Context context, String preferenceName, String preferenceValue){
