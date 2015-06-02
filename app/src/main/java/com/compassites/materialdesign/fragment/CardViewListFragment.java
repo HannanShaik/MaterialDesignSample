@@ -9,12 +9,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.LinearLayout;
 
 import com.compassites.materialdesign.MainActivity;
 import com.compassites.materialdesign.R;
@@ -35,7 +37,7 @@ public class CardViewListFragment extends Fragment implements ObservableScrollVi
     CardListAdapter cardListAdapter;
     ProgressDialog pd;
     private RecyclerView.LayoutManager layoutManager;
-
+    LinearLayout overlayLayout;
     public static List<Card> getData(){
 
         List<Card> cardsList = new ArrayList<>();
@@ -64,7 +66,6 @@ public class CardViewListFragment extends Fragment implements ObservableScrollVi
         com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView mRecyclerView =
                 (com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView) rootView.findViewById(R.id.rv_card_list);
 
-
         cards = new ArrayList<>();
         cards = getData();
 
@@ -76,8 +77,8 @@ public class CardViewListFragment extends Fragment implements ObservableScrollVi
         mRecyclerView.setAdapter(cardListAdapter);
 
         //3P Library
-        mRecyclerView.setScrollViewCallbacks(this);
-        //mRecyclerView.setOnScrollListener(onScrollListener);
+        //mRecyclerView.setScrollViewCallbacks(this);
+        mRecyclerView.setOnScrollListener(onScrollListener);
 
         return rootView;
     }
@@ -165,9 +166,6 @@ public class CardViewListFragment extends Fragment implements ObservableScrollVi
                     break;
                 case RecyclerView.SCROLL_STATE_DRAGGING:
                     activity.hideActionAndBottomBar();
-                    break;
-                case RecyclerView.SCROLL_STATE_SETTLING:
-                    activity.showActionAndBottomBar();
                     break;
             }
         }

@@ -23,6 +23,8 @@
         <item name="android:background">@color/primaryColor</item>
         <item name="android:textColor">#FFF</item>
         <item name="android:textColorSecondary">@color/primaryColorDark</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
 
     </style>
 

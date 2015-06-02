@@ -81,25 +81,24 @@ public class MainActivity extends ActionBarActivity {
             return;
         }
         if(visible) {
+            toolbar.setVisibility(View.VISIBLE);
             toolbar.animate().translationY(0)
-                    .setDuration(500)
+                    .setDuration(300)
                     .setListener(new AnimatorListenerAdapter() {
                         @Override
                         public void onAnimationEnd(Animator animation) {
                             toolbar.setVisibility(View.VISIBLE);
-                            getSupportActionBar().show();
                         }
                     })
                     .start();
         }
         else {
             toolbar.animate().translationY(-toolbar.getBottom())
-                    .setDuration(500)
+                    .setDuration(300)
                     .setListener(new AnimatorListenerAdapter() {
                         @Override
                         public void onAnimationEnd(Animator animation) {
                             toolbar.setVisibility(View.INVISIBLE);
-                            getSupportActionBar().hide();
                         }
                     }).start();
         }
@@ -110,17 +109,13 @@ public class MainActivity extends ActionBarActivity {
      * Hide the action bar and the bottom bar.
      */
     public void hideActionAndBottomBar() {
-        if (getSupportActionBar() != null && getSupportActionBar().isShowing()) {
             setToolbarVisibility(false,true);
-        }
     }
 
     /**
      * Show the action bar and the bottom bar.
      */
     public void showActionAndBottomBar() {
-        if (getSupportActionBar() != null && !getSupportActionBar().isShowing()) {
             setToolbarVisibility(true,true);
-        }
     }
 }

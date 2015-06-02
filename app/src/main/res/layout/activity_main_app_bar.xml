@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/app_bar" />
 
     <android.support.v4.widget.DrawerLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -20,10 +17,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
+
             <FrameLayout
                 android:id="@+id/frame_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent" >
+
+            </FrameLayout>
+
+            <include
+                android:id="@id/toolbar"
+                layout="@layout/app_bar"
+                />
+
 
             <com.getbase.floatingactionbutton.FloatingActionsMenu
                 android:id="@+id/multiple_actions"
